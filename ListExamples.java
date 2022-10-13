@@ -3,6 +3,7 @@ import java.util.List;
 
 interface StringChecker { boolean checkString(String s); }
 
+//all methods have bugs
 class ListExamples {
 
   // Returns a new list that has all the elements of the input list for which
