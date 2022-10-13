@@ -3,8 +3,13 @@ import java.util.List;
 
 interface StringChecker { boolean checkString(String s); }
 
+class LongerThan3 implements StringChecker{
+  public boolean checkString(String s){
+    return s.length() > 3;
+  }
+}
 //all methods have bugs
-class ListExamples {
+class ListExamples{
 
   // Returns a new list that has all the elements of the input list for which
   // the StringChecker returns true, and not the elements that return false, in
@@ -13,12 +18,21 @@ class ListExamples {
     List<String> result = new ArrayList<>();
     for(String s: list) {
       if(sc.checkString(s)) {
-        result.add(0, s);
+        result.add(0, s);   //keep adding element to index 0, in the reverse order
       }
     }
     return result;
   }
 
+  static List<String> filterFixed(List<String> list, StringChecker sc) {
+    List<String> result = new ArrayList<>();
+    for(String s: list) {
+      if(sc.checkString(s)) {
+        result.add(s); //appending it to the end, so that they appear in the input order
+      }
+    }
+    return result;
+  }
 
   // Takes two sorted list of strings (so "a" appears before "b" and so on),
   // and return a new list that has all the strings in both list in sorted order.
